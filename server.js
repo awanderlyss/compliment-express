@@ -28,7 +28,6 @@ var colors = ["#FFBF00", "#0080FF","#01DF3A","#FF0080"];
 app.get('/', (req, res) => {
   var randomCompliment = compliments[Math.floor(Math.random() * compliments.length)];
   var randomColor = colors[Math.floor(Math.random() * colors.length)];
-  
   res.render('compliments-index', {
     compliment: randomCompliment,
     color: randomColor
@@ -36,7 +35,13 @@ app.get('/', (req, res) => {
 });
 
 app.get("/:name", (req, res) => {
-  res.send(`hello ${req.params.name}`);
+  var randomCompliment = compliments[Math.floor(Math.random() * compliments.length)];
+  var randomColor = colors[Math.floor(Math.random() * colors.length)];
+  res.render('compliments-index', {
+    compliment: randomCompliment,
+    color: randomColor,
+    name: req.params.name
+  });
 });
 
 app.listen(3000, function() {
