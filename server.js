@@ -3,6 +3,10 @@ var hbs       = require('hbs');
 
 var app = express();
 
+
+app.use(express.static(__dirname + '/public'));
+
+
 // *************HANDLEBARS CONFIG
 app.set('view engine', 'hbs');
 app.set('views', './views');
